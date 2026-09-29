@@ -56,7 +56,14 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-24 md:py-32 bg-[#fafafa]">
+    <section id="experience" className="py-24 md:py-32 bg-[#fafafa] relative overflow-hidden">
+      <div
+        className="absolute top-0 left-0 w-full h-full -z-10 opacity-30"
+        style={{
+          background:
+            "radial-gradient(circle at 90% 10%, rgba(16, 185, 129, 0.08), transparent 35%)",
+        }}
+      />
       <div className="mx-auto max-w-6xl px-6">
         <AnimatedSection>
           <p className="text-sm font-medium text-[#737373] uppercase tracking-wider mb-4">
@@ -70,10 +77,10 @@ export default function Experience() {
         <div className="space-y-8">
           {experiences.map((exp, index) => (
             <AnimatedSection key={exp.company + exp.period} delay={index * 0.1}>
-              <div className="group p-6 sm:p-8 rounded-2xl bg-white border border-[#e5e5e5] hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+              <div className="group p-6 sm:p-8 rounded-2xl bg-white border border-[#e5e5e5] hover:shadow-md hover:-translate-y-1 hover:border-[#10b981]/30 transition-all duration-300">
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
                   <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-lg bg-[#fafafa] border border-[#e5e5e5] text-[#171717]">
+                    <div className="p-3 rounded-lg bg-[#fafafa] border border-[#e5e5e5] text-[#10b981] group-hover:bg-[#10b981] group-hover:text-white transition-colors duration-300">
                       <Briefcase size={22} />
                     </div>
                     <div>

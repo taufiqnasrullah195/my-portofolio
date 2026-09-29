@@ -1,6 +1,7 @@
 "use client";
 
 import AnimatedSection from "../components/AnimatedSection";
+import { Check } from "lucide-react";
 
 const skillCategories = [
   {
@@ -68,17 +69,22 @@ export default function Skills() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category, index) => (
             <AnimatedSection key={category.title} delay={index * 0.08}>
-              <div className="h-full p-6 rounded-2xl bg-[#fafafa] border border-[#e5e5e5] hover:shadow-md transition-shadow duration-300">
-                <h3 className="text-lg font-semibold text-[#171717] mb-4">
-                  {category.title}
-                </h3>
+              <div className="group h-full p-6 rounded-2xl bg-[#fafafa] border border-[#e5e5e5] hover:shadow-md hover:-translate-y-1 hover:border-[#10b981]/30 transition-all duration-300">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-3 h-3 rounded-full bg-[#10b981] group-hover:scale-125 transition-transform duration-300" />
+                  <h3 className="text-lg font-semibold text-[#171717]">
+                    {category.title}
+                  </h3>
+                </div>
                 <ul className="space-y-2">
                   {category.skills.map((skill) => (
                     <li
                       key={skill}
-                      className="text-sm text-[#737373] flex gap-2"
+                      className="text-sm text-[#737373] flex items-start gap-2"
                     >
-                      <span className="text-[#a3a3a3]">•</span>
+                      <span className="mt-0.5 text-[#10b981] shrink-0">
+                        <Check size={14} />
+                      </span>
                       {skill}
                     </li>
                   ))}

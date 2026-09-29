@@ -1,14 +1,55 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, Mail, MapPin } from "lucide-react";
 
+const roles = [
+  "Junior IT Support",
+  "System Administrator",
+  "Cybersecurity Enthusiast",
+];
+
 export default function Hero() {
+  const [currentRole, setCurrentRole] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const role = roles[currentRole];
+    let timeout: NodeJS.Timeout;
+
+    if (!isDeleting && displayText === role) {
+      timeout = setTimeout(() => setIsDeleting(true), 2000);
+    } else if (isDeleting && displayText === "") {
+      setIsDeleting(false);
+      setCurrentRole((prev) => (prev + 1) % roles.length);
+    } else {
+      const nextChar = isDeleting ? -1 : 1;
+      const nextText = role.slice(
+        0,
+        Math.max(0, displayText.length + nextChar)
+      );
+      timeout = setTimeout(() => setDisplayText(nextText), isDeleting ? 50 : 100);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, currentRole]);
+
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center px-6 pt-16"
+      className="relative min-h-screen flex items-center justify-center px-6 pt-16 overflow-hidden"
     >
+      {/* Background pattern */}
+      <div
+        className="absolute inset-0 -z-10 opacity-40"
+        style={{
+          background:
+            "radial-gradient(circle at 20% 30%, rgba(16, 185, 129, 0.12), transparent 40%), radial-gradient(circle at 80% 70%, rgba(16, 185, 129, 0.08), transparent 40%), radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.04), transparent 50%)",
+        }}
+      />
+
       <div className="mx-auto max-w-6xl w-full">
         <div className="max-w-3xl">
           <motion.div
@@ -18,7 +59,7 @@ export default function Hero() {
             className="flex items-center gap-2 mb-6"
           >
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#fafafa] border border-[#e5e5e5] text-xs font-medium text-[#737373]">
-              <span className="w-2 h-2 rounded-full bg-[#16a34a] animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse" />
               Open to work
             </span>
             <span className="hidden sm:inline-flex items-center gap-1 text-sm text-[#737373]">
@@ -33,9 +74,8 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#171717] leading-[1.1]"
           >
-            Junior IT Support
-            <br />
-            <span className="text-[#737373]">&</span> System Administrator
+            {displayText}
+            <span className="inline-block w-[3px] h-[0.9em] bg-[#10b981] ml-1 animate-pulse align-middle" />
           </motion.h1>
 
           <motion.p
@@ -65,7 +105,7 @@ export default function Hero() {
                   window.scrollTo({ top: elementPosition - 80, behavior: "smooth" });
                 }
               }}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#171717] text-white rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#171717] text-white rounded-lg text-sm font-medium hover:bg-[#10b981] transition-colors duration-300"
             >
               <Mail size={18} />
               Get in touch
@@ -80,7 +120,7 @@ export default function Hero() {
                   window.scrollTo({ top: elementPosition - 80, behavior: "smooth" });
                 }
               }}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-[#171717] border border-[#d4d4d4] rounded-lg text-sm font-medium hover:bg-[#fafafa] transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-[#171717] border border-[#d4d4d4] rounded-lg text-sm font-medium hover:border-[#10b981] hover:text-[#10b981] transition-colors duration-300"
             >
               View projects
             </a>
