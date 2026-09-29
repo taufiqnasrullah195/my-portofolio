@@ -57,6 +57,14 @@ export default function Hero() {
           >
             <a
               href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.querySelector("#contact");
+                if (element) {
+                  const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+                  window.scrollTo({ top: elementPosition - 80, behavior: "smooth" });
+                }
+              }}
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#171717] text-white rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
             >
               <Mail size={18} />
@@ -64,6 +72,14 @@ export default function Hero() {
             </a>
             <a
               href="#projects"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.querySelector("#projects");
+                if (element) {
+                  const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+                  window.scrollTo({ top: elementPosition - 80, behavior: "smooth" });
+                }
+              }}
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-[#171717] border border-[#d4d4d4] rounded-lg text-sm font-medium hover:bg-[#fafafa] transition-colors"
             >
               View projects
