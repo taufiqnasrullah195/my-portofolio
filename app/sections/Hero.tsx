@@ -89,12 +89,13 @@ export default function Hero() {
             reliable, secure, and running smoothly.
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-10 flex flex-wrap items-center gap-4"
-          >
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <a
+              href="/cv"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#10b981] text-white rounded-lg text-sm font-medium hover:bg-[#059669] transition-colors duration-300"
+            >
+              Download CV
+            </a>
             <a
               href="#contact"
               onClick={(e) => {
@@ -124,7 +125,7 @@ export default function Hero() {
             >
               View projects
             </a>
-          </motion.div>
+          </div>
         </div>
       </div>
 
