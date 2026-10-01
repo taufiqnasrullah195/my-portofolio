@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowDown, Mail, MapPin } from "lucide-react";
 
 const roles = [
-  "Junior IT Support",
+  "IT Support Specialist",
   "System Administrator",
   "Cybersecurity Enthusiast",
 ];
@@ -74,14 +74,25 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#171717] leading-[1.1]"
           >
-            {displayText}
-            <span className="inline-block w-[3px] h-[0.9em] bg-[#10b981] ml-1 animate-pulse align-middle" />
+            Junior IT Support
+            <br />
+            <span className="text-[#10b981]">&</span> System Administrator
           </motion.h1>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-4 text-xl sm:text-2xl text-[#737373] font-medium h-8"
+          >
+            {displayText}
+            <span className="inline-block w-[3px] h-[1em] bg-[#10b981] ml-1 animate-pulse align-middle" />
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="mt-6 text-lg sm:text-xl text-[#737373] leading-relaxed max-w-2xl"
           >
             Computer Science graduate with hands-on experience in IT support,

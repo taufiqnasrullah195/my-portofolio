@@ -37,8 +37,10 @@ export default function About() {
               </p>
               <p className="text-lg text-[#737373] leading-relaxed">
                 I am fluent in Indonesian, proficient in English, and conversational in
-                German (B1). I am currently seeking an entry-level role as a Junior IT
-                Support Specialist or Junior System Administrator.
+                German (B1). I am continuously improving my German with the goal of
+                reaching B2 level, which will allow me to communicate effectively in
+                workplace and technical contexts. I am currently seeking an entry-level
+                role as a Junior IT Support Specialist or Junior System Administrator.
               </p>
             </div>
           </div>
