@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, Mail, MapPin } from "lucide-react";
+import Image from "next/image";
 
 const roles = [
   "IT Support Specialist",
@@ -51,92 +52,122 @@ export default function Hero() {
       />
 
       <div className="mx-auto max-w-6xl w-full">
-        <div className="max-w-3xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="flex items-center gap-2 mb-6"
-          >
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#fafafa] border border-[#e5e5e5] text-xs font-medium text-[#737373]">
-              <span className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse" />
-              Open to work
-            </span>
-            <span className="hidden sm:inline-flex items-center gap-1 text-sm text-[#737373]">
-              <MapPin size={14} />
-              Vlotho, Germany
-            </span>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#171717] leading-[1.1]"
-          >
-            Junior IT Support
-            <br />
-            <span className="text-[#10b981]">&</span> System Administrator
-          </motion.h1>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-4 text-xl sm:text-2xl text-[#737373] font-medium h-8"
-          >
-            {displayText}
-            <span className="inline-block w-[3px] h-[1em] bg-[#10b981] ml-1 animate-pulse align-middle" />
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-6 text-lg sm:text-xl text-[#737373] leading-relaxed max-w-2xl"
-          >
-            Computer Science graduate with hands-on experience in IT support,
-            networking, and cybersecurity. I help organizations keep their systems
-            reliable, secure, and running smoothly.
-          </motion.p>
-
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <a
-              href="/cv"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#10b981] text-white rounded-lg text-sm font-medium hover:bg-[#059669] transition-colors duration-300"
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Text Content */}
+          <div className="order-2 lg:order-1">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="flex items-center gap-2 mb-6"
             >
-              Download CV
-            </a>
-            <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                const element = document.querySelector("#contact");
-                if (element) {
-                  const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-                  window.scrollTo({ top: elementPosition - 80, behavior: "smooth" });
-                }
-              }}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#171717] text-white rounded-lg text-sm font-medium hover:bg-[#10b981] transition-colors duration-300"
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#fafafa] border border-[#e5e5e5] text-xs font-medium text-[#737373]">
+                <span className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse" />
+                Open to work
+              </span>
+              <span className="hidden sm:inline-flex items-center gap-1 text-sm text-[#737373]">
+                <MapPin size={14} />
+                Vlotho, Germany
+              </span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl font-bold tracking-tight text-[#171717] leading-[1.1]"
             >
-              <Mail size={18} />
-              Get in touch
-            </a>
-            <a
-              href="#projects"
-              onClick={(e) => {
-                e.preventDefault();
-                const element = document.querySelector("#projects");
-                if (element) {
-                  const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-                  window.scrollTo({ top: elementPosition - 80, behavior: "smooth" });
-                }
-              }}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-[#171717] border border-[#d4d4d4] rounded-lg text-sm font-medium hover:border-[#10b981] hover:text-[#10b981] transition-colors duration-300"
+              Junior IT Support
+              <br />
+              <span className="text-[#10b981]">&</span> System Administrator
+            </motion.h1>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-4 text-xl sm:text-2xl text-[#737373] font-medium h-8"
             >
-              View projects
-            </a>
+              {displayText}
+              <span className="inline-block w-[3px] h-[1em] bg-[#10b981] ml-1 animate-pulse align-middle" />
+            </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-6 text-lg sm:text-xl text-[#737373] leading-relaxed max-w-2xl"
+            >
+              Computer Science graduate with hands-on experience in IT support,
+              networking, and cybersecurity. I help organizations keep their systems
+              reliable, secure, and running smoothly.
+            </motion.p>
+
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <a
+                href="/cv"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#10b981] text-white rounded-lg text-sm font-medium hover:bg-[#059669] transition-colors duration-300"
+              >
+                Download CV
+              </a>
+              <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.querySelector("#contact");
+                  if (element) {
+                    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+                    window.scrollTo({ top: elementPosition - 80, behavior: "smooth" });
+                  }
+                }}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#171717] text-white rounded-lg text-sm font-medium hover:bg-[#10b981] transition-colors duration-300"
+              >
+                <Mail size={18} />
+                Get in touch
+              </a>
+              <a
+                href="#projects"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.querySelector("#projects");
+                  if (element) {
+                    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+                    window.scrollTo({ top: elementPosition - 80, behavior: "smooth" });
+                  }
+                }}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-[#171717] border border-[#d4d4d4] rounded-lg text-sm font-medium hover:border-[#10b981] hover:text-[#10b981] transition-colors duration-300"
+              >
+                View projects
+              </a>
+            </div>
           </div>
+
+          {/* Profile Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="order-1 lg:order-2 flex justify-center lg:justify-end"
+          >
+            <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#10b981]/20 to-[#6366f1]/20 blur-2xl" />
+              <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl">
+                <Image
+                  src="/profile.jpg"
+                  alt="Taufiq Nashrullah"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              <div className="absolute -bottom-2 -right-2 bg-white rounded-full p-3 shadow-lg border border-[#e5e5e5]">
+                <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-[#10b981]/10 text-[#10b981] text-xs font-semibold">
+                  <span className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse" />
+                  Open to work
+                </span>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
 
