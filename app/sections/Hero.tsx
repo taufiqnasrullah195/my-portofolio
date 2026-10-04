@@ -153,7 +153,7 @@ export default function Hero() {
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#10b981]/20 to-[#6366f1]/20 blur-2xl" />
               <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl">
                 <Image
-                  src="/profile.jpg"
+                  src="/my-portofolio/profile.jpg"
                   alt="Taufiq Nashrullah"
                   fill
                   className="object-cover"
